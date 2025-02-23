@@ -1,18 +1,20 @@
 package dto
 
 import (
+	"time"
+
 	"github.com/google/uuid"
 )
 
 type UpdateTicketRequest struct {
 	ID              uuid.UUID `json:"id"`
-	OrderNumber     string    `json:"orderNumber" validate:"omitempty,min=1,max=50"`
-	Departure       string    `json:"departure" validate:"omitempty,min=2,max=100"`
-	Destination     string    `json:"destination" validate:"omitempty,min=2,max=100"`
-	ServiceProvider string    `json:"serviceProvider" validate:"omitempty,min=2,max=100"`
-	DepartureDate   string    `json:"departureDate" validate:"omitempty,datetime=2006-01-02T15:04:05"`
-	ArrivalDate     string    `json:"arrivalDate" validate:"omitempty,datetime=2006-01-02T15:04:05"`
-	OrderDate       string    `json:"orderDate" validate:"omitempty,datetime=2006-01-02T15:04:05"`
+	OrderNumber     string    `json:"orderNumber" validate:"required,min=1,max=50"`
+	Departure       string    `json:"departure" validate:"required,min=2,max=100"`
+	Destination     string    `json:"destination" validate:"required,min=2,max=100"`
+	ServiceProvider string    `json:"serviceProvider" validate:"required,min=2,max=100"`
+	DepartureDate   string    `json:"departureDate" validate:"required,datetime=2006-01-02T15:04:05"`
+	ArrivalDate     string    `json:"arrivalDate" validate:"required,datetime=2006-01-02T15:04:05"`
+	OrderDate       string    `json:"orderDate" validate:"required,datetime=2006-01-02T15:04:05"`
 }
 
 type UpdateTicketResponse struct {
@@ -36,11 +38,16 @@ type TicketResponse struct {
 	ArrivalDate     string    `json:"arrivalDate"`
 	OrderDate       string    `json:"orderDate"`
 }
-
 type GetFullOneTicket struct {
-	Ticket    TicketResponse    `json:"ticket"`
-	Passenger PassengerResponse `json:"passenger"`
-	Document  DocumentResponse  `json:"document"`
+	ID              uuid.UUID         `json:"id"`
+	OrderNumber     string            `json:"orderNumber"`
+	Departure       string            `json:"departure"`
+	Destination     string            `json:"destination"`
+	ServiceProvider string            `json:"serviceProvider"`
+	DepartureDate   time.Time         `json:"departureDate"`
+	ArrivalDate     time.Time         `json:"arrivalDate"`
+	OrderDate       time.Time         `json:"orderDate"`
+	Passenger       PassengerResponse `json:"passenger"`
 }
 
 type GetPassengerReportRequest struct {

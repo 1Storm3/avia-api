@@ -43,10 +43,8 @@ func (t *TicketService) GetAll(ctx context.Context, pagination dto.Pagination) (
 }
 
 func (t *TicketService) Update(ctx context.Context, ticket domain.Ticket) (domain.Ticket, error) {
-
-	ticketModel := converter.DomainTicketToModel(ticket)
-
-	result, err := t.ticketRepo.Update(ctx, ticketModel)
+	modelTicket := converter.DomainTicketToModel(ticket)
+	result, err := t.ticketRepo.Update(ctx, modelTicket)
 
 	if err != nil {
 		return domain.Ticket{}, err
@@ -59,12 +57,12 @@ func (t *TicketService) Delete(ctx context.Context, ticketID uuid.UUID) error {
 	return t.ticketRepo.Delete(ctx, ticketID)
 }
 
-func (t *TicketService) GetOne(ctx context.Context, ticketID uuid.UUID) (dto.GetFullOneTicket,
+func (t *TicketService) GetOne(ctx context.Context, ticketID uuid.UUID) (*dto.GetFullOneTicket,
 	error) {
 	result, err := t.ticketRepo.GetOne(ctx, ticketID)
 
 	if err != nil {
-		return dto.GetFullOneTicket{}, err
+		return &dto.GetFullOneTicket{}, err
 	}
 
 	return result, nil

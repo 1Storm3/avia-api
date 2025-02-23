@@ -45,15 +45,6 @@ DELETE
 FROM tickets
 WHERE id = $1;
 
--- name: GetOneTicket :one
-SELECT t.*,
-       sqlc.embed(p),
-       sqlc.embed(d)
-FROM tickets t
-         left JOIN passengers p ON p.id = t.passenger_id
-         left JOIN documents d ON d.passenger_id = p.id
-WHERE t.id = $1;
-
 -- name: GetPassengerReport :many
 SELECT t.order_date,
        t.departure_date,

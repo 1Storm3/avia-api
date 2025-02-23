@@ -13,7 +13,7 @@ type TicketRepo interface {
 	GetAll(ctx context.Context, limit, offset int) ([]model.Ticket, int64, error)
 	Update(ctx context.Context, ticket model.Ticket) (model.Ticket, error)
 	Delete(ctx context.Context, ticketID uuid.UUID) error
-	GetOne(ctx context.Context, ticketID uuid.UUID) (dto.GetFullOneTicket, error)
+	GetOne(ctx context.Context, ticketID uuid.UUID) (*dto.GetFullOneTicket, error)
 	GetPassengerReport(ctx context.Context,
 		dto dto.GetPassengerReportRequest) ([]dto.GetPassengerReportResponse, error)
 	GetAllByPassenger(ctx context.Context, passengerID uuid.UUID) ([]model.Ticket, error)

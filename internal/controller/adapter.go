@@ -14,7 +14,7 @@ type TicketService interface {
 		[]domain.Ticket, dto.PaginationMeta, error)
 	Update(ctx context.Context, ticket domain.Ticket) (domain.Ticket, error)
 	Delete(ctx context.Context, ticketID uuid.UUID) error
-	GetOne(ctx context.Context, ticketID uuid.UUID) (dto.GetFullOneTicket, error)
+	GetOne(ctx context.Context, ticketID uuid.UUID) (*dto.GetFullOneTicket, error)
 	GetPassengerReport(ctx context.Context,
 		dto dto.GetPassengerReportRequest) ([]dto.GetPassengerReportResponse, error)
 	GetAllByPassenger(ctx context.Context, passengerID uuid.UUID) ([]domain.Ticket, error)

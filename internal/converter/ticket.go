@@ -20,31 +20,6 @@ func SqlcTicketToModel(ticket *gensqlc.Ticket) model.Ticket {
 	}
 }
 
-func SqlcGetOneRowToDto(oneRow *gensqlc.GetOneTicketRow) dto.GetFullOneTicket {
-	return dto.GetFullOneTicket{
-		Ticket: dto.TicketResponse{
-			ID:              oneRow.ID,
-			OrderNumber:     oneRow.OrderNumber,
-			Departure:       oneRow.Departure,
-			Destination:     oneRow.Destination,
-			ServiceProvider: oneRow.ServiceProvider,
-			DepartureDate:   oneRow.DepartureDate.String(),
-			ArrivalDate:     oneRow.ArrivalDate.String(),
-			OrderDate:       oneRow.OrderDate.String(),
-		},
-		Passenger: dto.PassengerResponse{
-			ID:        oneRow.PassengerID,
-			FirstName: oneRow.Passenger.FirstName,
-			LastName:  oneRow.Passenger.LastName,
-		},
-		Document: dto.DocumentResponse{
-			ID:     oneRow.Document.ID,
-			Type:   oneRow.Document.Type,
-			Number: oneRow.Document.Number,
-		},
-	}
-}
-
 func SqlcTicketsToDomain(tickets []*gensqlc.Ticket) []model.Ticket {
 	var result []model.Ticket
 	for _, ticket := range tickets {

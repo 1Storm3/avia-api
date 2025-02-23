@@ -54,9 +54,9 @@ func (t *TicketController) Update(c *fiber.Ctx) error {
 	}
 	dtoTicket.ID = ticketID
 
-	ticketDomain := converter.UpdateTicketRequestToDomain(dtoTicket)
+	domainTicket := converter.UpdateTicketRequestToDomain(dtoTicket)
 
-	ticket, err := t.ticketService.Update(c.Context(), ticketDomain)
+	ticket, err := t.ticketService.Update(c.Context(), domainTicket)
 
 	if err != nil {
 		return mistake.HandleError(c, err)
