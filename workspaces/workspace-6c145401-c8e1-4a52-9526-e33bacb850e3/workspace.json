@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "workspace": {
+    "createdAt": 1778583002233,
+    "description": "",
+    "id": "workspace-6c145401-c8e1-4a52-9526-e33bacb850e3",
+    "name": "My Workspace",
+    "theme": {
+      "accentColor": "#5865f2",
+      "enabled": false,
+      "themeColor": "#2a2a46"
+    },
+    "updatedAt": 1778583002233
+  },
+  "collectionOrder": [
+    "collection-6971422f-8928-4d67-91cd-2d1388d70bc4"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "collection": {
+    "collapsed": false,
+    "createdAt": 1778583002233,
+    "description": "",
+    "id": "collection-6971422f-8928-4d67-91cd-2d1388d70bc4",
+    "name": "Requests",
+    "updatedAt": 1778583002233,
+    "workspaceId": "workspace-6c145401-c8e1-4a52-9526-e33bacb850e3"
+  },
+  "requestOrder": [
+    "7562a7a6-89c0-4fce-a617-0608c7a7f873",
+    "cd80f13e-0959-4ea2-8c31-98e8b9c6981c"
+  ]
+}

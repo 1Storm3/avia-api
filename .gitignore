@@ -1,0 +1,5 @@
+.relay-local/
+.env
+.env.*
+!.env.example
+*.tmp
